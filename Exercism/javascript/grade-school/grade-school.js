@@ -1,5 +1,4 @@
 export function GradeSchool () {
-
     let roster = {};
     let grades = [];
 
