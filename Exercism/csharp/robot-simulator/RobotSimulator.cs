@@ -27,34 +27,42 @@ public class RobotSimulator
 
         foreach(char c in steps)
         {
-            if (c.Equals('R'))
+            switch (c)
             {
-                Direction = Direction < Direction.West ? Direction + 1 : Direction.North;
+                case 'R':
+                    Right();
+                    break;
+                case 'L':
+                    Left();
+                    break;
+                case 'A':
+                    Advance();
+                    break;
+            }
+        }
+    }
 
-            }
-            if (c.Equals('L'))
-            {
-                Direction = Direction > Direction.North ? Direction - 1 : Direction.West;
+    public void Right() => Direction = 
+            Direction < Direction.West ? Direction + 1 : Direction.North;
+    public void Left() => Direction = 
+            Direction = Direction > Direction.North ? Direction - 1 : Direction.West;
 
-            }
-            if (c.Equals('A'))
-            {
-                switch (Direction)
-                {
-                    case Direction.North:
-                        Y += 1;
-                        break;
-                    case Direction.South:
-                        Y -= 1;
-                        break;
-                    case Direction.West:
-                        X -= 1;
-                        break;
-                    case Direction.East:
-                        X += 1;
-                        break;
-                }
-            }
+    public void Advance()
+    {
+        switch (Direction)
+        {
+            case Direction.North:
+                Y += 1;
+                break;
+            case Direction.South:
+                Y -= 1;
+                break;
+            case Direction.West:
+                X -= 1;
+                break;
+            case Direction.East:
+                X += 1;
+                break;
         }
     }
 }
