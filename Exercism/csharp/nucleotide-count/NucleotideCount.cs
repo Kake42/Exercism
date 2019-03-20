@@ -26,5 +26,9 @@ public static class NucleotideCount
         dna.Add('T', thymine);
 
         return dna;
+
+        //different solution to be learned from
+        // return (sequence + "ACGT").GroupBy(x => x)
+        //.ToDictionary(g => g.Key, g => g.Count() - 1);
     }
 }
