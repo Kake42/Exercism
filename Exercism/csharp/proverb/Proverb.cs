@@ -19,4 +19,10 @@ public static class Proverb
         result[result.Length-1] = String.Format("And all for the want of a {0}.", subjects[0]);
         return result;
     }
+    /*  different solution to be learned from      
+        return subjects
+            .Zip(subjects.Skip(1),
+            (a, b) =>  $"For want of a {a} the {b} was lost.")
+        .Append($"And all for the want of a {subjects[0]}.")
+        .ToArray();*/
 }
